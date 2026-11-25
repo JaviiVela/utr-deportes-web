@@ -1,10 +1,14 @@
 :root {
-  --primary: #1d4ed8;
-  --primary-hover: #1e40af;
+  --navy: #0f294a;
+  --navy-hover: #173b69;
+  --navy-light: #e8eff7;
+  --red-secondary: #c81e1e;
+  --red-hover: #9b1c1c;
+  --red-soft: #fef2f2;
   --emerald: #059669;
   --danger: #dc2626;
   --warning: #d97706;
-  --bg-page: #f8fafc;
+  --bg-page: #f5f7fa;
   --bg-card: #ffffff;
   --text-main: #0f172a;
   --text-muted: #64748b;
@@ -23,7 +27,20 @@
 }
 
 body {
+  min-height: 100vh;
   background-color: var(--bg-page);
+  background-image:
+    radial-gradient(
+      circle at 5% 8%,
+      rgba(15, 41, 74, 0.22) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 95% 92%,
+      rgba(120, 18, 24, 0.22) 0%,
+      transparent 55%
+    );
+  background-attachment: fixed;
   color: var(--text-main);
   line-height: 1.5;
 }
@@ -34,6 +51,7 @@ button {
   font-weight: 600;
   transition:
     background-color 0.2s,
+    border-color 0.2s,
     opacity 0.2s;
 }
 

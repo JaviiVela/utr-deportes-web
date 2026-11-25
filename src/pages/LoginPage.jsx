@@ -37,52 +37,99 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <div className="auth-header">
-          <span className="auth-badge">Deportes UTR · Proyecto B</span>
-          <h2>Iniciar Sesión</h2>
-          <p className="auth-subtitle">
-            Ingresa tus credenciales para gestionar material deportivo.
-          </p>
-        </div>
-
-        <form className="auth-form" onSubmit={handleSubmit}>
-          {error && <div className="alert-error">{error}</div>}
-
-          <div className="form-group">
-            <label htmlFor="email">Correo Electrónico</label>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              placeholder="alumno@equipo-b2.utr"
-              value={formData.email}
-              onChange={handleChange}
-            />
+    <div className="auth-wrapper">
+      <header className="auth-topbar">
+        <div className="auth-brand">
+          <div className="auth-logo-box">UTR</div>
+          <div>
+            <div className="auth-brand-title">
+              UTR <span>| Deportes</span>
+            </div>
+            <span className="auth-brand-sub">Préstamo de material</span>
           </div>
-
-          <div className="form-group">
-            <label htmlFor="password">Contraseña</label>
-            <input
-              id="password"
-              type="password"
-              name="password"
-              placeholder="••••••••"
-              value={formData.password}
-              onChange={handleChange}
-            />
-          </div>
-
-          <button type="submit" className="btn-primary" disabled={isSubmitting}>
-            {isSubmitting ? "Iniciando sesión..." : "Iniciar Sesión"}
-          </button>
-        </form>
-
-        <div className="auth-footer">
-          ¿No tienes cuenta? <Link to="/register">Regístrate aquí</Link>
         </div>
-      </div>
+        <span className="guest-pill">Rol activo: Invitado</span>
+      </header>
+
+      <main className="auth-main">
+        <div className="auth-split-grid">
+          <section className="auth-hero-card">
+            <div>
+              <span className="hero-pill">Actívate en el campus</span>
+              <h1>Todo el deporte, en tus manos.</h1>
+              <p>
+                Consulta el inventario, reserva material y disfruta cada
+                actividad en la UTR.
+              </p>
+            </div>
+
+            <div className="hero-stats-grid">
+              <div className="hero-stat-box">
+                <strong>6+</strong>
+                <span>disciplinas</span>
+              </div>
+              <div className="hero-stat-box">
+                <strong>24/7</strong>
+                <span>inventario vivo</span>
+              </div>
+              <div className="hero-stat-box">
+                <strong>UTR</strong>
+                <span>comunidad</span>
+              </div>
+            </div>
+          </section>
+
+          <section className="auth-card">
+            <div className="auth-icon-badge">→</div>
+            <div className="auth-header">
+              <h2>Bienvenido de vuelta</h2>
+              <p className="auth-subtitle">
+                Inicia sesión con tu cuenta institucional.
+              </p>
+            </div>
+
+            <form className="auth-form" onSubmit={handleSubmit}>
+              {error && <div className="alert-error">{error}</div>}
+
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="alumno@equipo-b2.utr"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="password">Contraseña</label>
+                <input
+                  id="password"
+                  type="password"
+                  name="password"
+                  placeholder="Tu contraseña"
+                  value={formData.password}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="btn-primary"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Iniciando sesión..." : "Iniciar Sesión"}
+              </button>
+            </form>
+
+            <div className="auth-footer">
+              ¿No tienes cuenta? <Link to="/register">Regístrate</Link>
+            </div>
+          </section>
+        </div>
+      </main>
     </div>
   );
 };

@@ -1,33 +1,10 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { AuthProvider, useAuth } from "./context/AuthContext";
+import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-
-// Vista temporal para validar sesión y prueba de rol 403
-const TempDashboard = () => {
-  const { user, logout } = useAuth();
-  return (
-    <div style={{ padding: "2rem" }}>
-      <h2>
-        Sesión activa: {user?.nombre} ({user?.rol})
-      </h2>
-      <p>Siguiente paso: construir Pantalla B1 (Inventario Deportivo).</p>
-      <button
-        onClick={logout}
-        style={{
-          marginTop: "1rem",
-          padding: "0.6rem 1rem",
-          background: "#dc2626",
-          color: "#fff",
-          borderRadius: "8px",
-        }}
-      >
-        Cerrar Sesión
-      </button>
-    </div>
-  );
-};
+import InventoryPage from "./pages/InventoryPage";
+import MyLoansPage from "./pages/MyLoansPage";
 
 function App() {
   return (
@@ -41,7 +18,16 @@ function App() {
             path="/inventario"
             element={
               <ProtectedRoute allowedRoles={["USER", "ADMIN"]}>
-                <TempDashboard />
+                <InventoryPage />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/mis-prestamos"
+            element={
+              <ProtectedRoute allowedRoles={["USER", "ADMIN"]}>
+                <MyLoansPage />
               </ProtectedRoute>
             }
           />
@@ -50,7 +36,9 @@ function App() {
             path="/admin"
             element={
               <ProtectedRoute allowedRoles={["ADMIN"]}>
-                <div style={{ padding: "2rem" }}>Panel Exclusivo ADMIN</div>
+                <div style={{ padding: "2rem" }}>
+                  Panel Exclusivo ADMIN (Siguiente bloque)
+                </div>
               </ProtectedRoute>
             }
           />

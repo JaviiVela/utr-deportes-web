@@ -1,0 +1,118 @@
+.app-navbar {
+  height: 68px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #e2e8f0;
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.navbar-logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: var(--navy);
+  border-bottom: 3px solid var(--red-secondary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.navbar-title {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--navy);
+}
+
+.navbar-title span {
+  color: var(--red-secondary);
+  font-weight: 700;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+  padding: 0.45rem 0.25rem;
+  border-bottom: 2px solid transparent;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--navy);
+}
+
+.nav-link.active {
+  color: var(--navy);
+  border-bottom-color: var(--red-secondary);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.user-role-info {
+  font-size: 0.82rem;
+  color: #334155;
+  font-weight: 600;
+}
+
+.role-badge-pill {
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: var(--navy-light);
+  color: var(--navy);
+}
+
+.role-badge-pill.admin {
+  background-color: var(--red-soft);
+  color: var(--red-secondary);
+}
+
+.btn-logout {
+  background-color: #ffffff;
+  color: var(--red-secondary);
+  font-size: 0.85rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #fecaca;
+}
+
+.btn-logout:hover {
+  background-color: var(--red-secondary);
+  color: #ffffff;
+  border-color: var(--red-secondary);
+}
